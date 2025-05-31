@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Co2Calcu – Tu Huella Digital</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0c0e1b;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: #0e7c7b;
+    }
+
+    .calculator {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.5rem;
+      background-color: #0e7c7b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0c5e5d;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #e0f2f1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="Logo Co2Calcu" width="1600" height="300" />
+    <h1>Conozca su huella digital. Proteja nuestro planeta.</h1>
+    <p></p>
+  </header>
+
+  <main>
+    <section>
+       <iframe width="900" height="515" src="https://www.youtube.com/embed/bw7ka2ZyuGg?si=wn5pvUkPkgoJqhnp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+       </iframe>
+      <h2>¿SABÍAS QUE?</h2>
+      <p>
+        El uso cotidiano de la tecnología (internet, redes sociales, dispositivos electrónicos) tiene un impacto ambiental invisible pero real. Desde el consumo energético de los servidores hasta la fabricación de dispositivos, todo suma a la huella de carbono digital.
+      </p>
+    </section>
+
+    <section>
+      <h2>¿POR QUÉ HEMOS CREADO CO2CALCU?</h2>
+      <p>
+        Co2Calcu es una herramienta que permite visualizar de forma sencilla cuánto contamina nuestro uso digital y cómo podemos reducirlo con acciones prácticas y conscientes.
+      </p>
+    </section>
+
+    <section class="calculator">
+      <h2>Calcula tu huella digital (Demo)</h2>
+      <label for="horas">Horas al día usando internet:</label>
+      <input type="number" id="horas" placeholder="Ej. 5" />
+
+      <label for="videos">Videos en streaming por día:</label>
+      <input type="number" id="videos" placeholder="Ej. 3" />
+
+      <button onclick="calcularHuella()">Calcular</button>
+
+      <div class="result" id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Co2Calcu by MechTeam.
+  </footer>
+
+  <script>
+    function calcularHuella() {
+      const horas = parseFloat(document.getElementById("horas").value) || 0;
+      const videos = parseFloat(document.getElementById("videos").value) || 0;
+
+      
+      const huellaHoras = horas * 55; // gramos de CO₂ por hora de navegación
+      const huellaVideos = videos * 300; // gramos de CO₂ por video en streaming
+
+      const total = huellaHoras + huellaVideos;
+
+      document.getElementById("resultado").textContent =
+        "Tu huella estimada diaria es de " + total.toFixed(0) + " g de CO₂.";
+    }
+  </script>
+
+</body>
+</html>
